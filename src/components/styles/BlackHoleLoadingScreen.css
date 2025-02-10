@@ -1,0 +1,71 @@
+.rocket-to-moon-loading-screen {
+    position: fixed;
+    inset: 0;
+    background: black;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    overflow: hidden;
+    z-index: 50;
+}
+
+.stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: black;
+    overflow: hidden;
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 2s infinite;
+}
+
+.rocket {
+    font-size: 50px;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    animation: launch 5s ease-in-out forwards;
+}
+
+.moon {
+    font-size: 100px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+@keyframes launch {
+    0% {
+        bottom: 10px;
+        left: 10px;
+        transform: rotate(0deg);
+    }
+
+    80% {
+        bottom: calc(100% - 195px);
+        left: calc(100% - 150px);
+        transform: rotate(0deg);
+    }
+
+    100% {
+        bottom: calc(100% - 170px);
+        left: calc(100% - 160px);
+        transform: rotate(180deg);
+    }
+}
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}

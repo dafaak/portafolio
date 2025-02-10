@@ -4,7 +4,6 @@ import "./index.css"
 import { useState } from 'react';
 import { Navbar } from './components/Navbar';
 import { MobileMenu } from './components/MobileMenu';
-import { RocketToMoonLoadingScreen } from './components/BlackHoleLoadingScreen';
 
 
 function App() {
