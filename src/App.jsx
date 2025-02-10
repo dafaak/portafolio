@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { Navbar } from './components/Navbar';
 import { MobileMenu } from './components/MobileMenu';
 import { Home } from './components/sections/Home';
+import { About } from './components/sections/About';
 
 function App() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -18,10 +19,12 @@ function App() {
     <>
     
       {!isLoaded && <LoadingScreen onComplete={() => setIsLoaded(true)} />}
-      <div className={`max-h-screen max-w-screen transition-opacity duration-700 ${isLoaded ? "opacity-100" : "opacity-0"} bg-black text-gray-100`}>
+      <div className={`max-h-screen max-w-screen transition-opacity duration-700 ${isLoaded ? "opacity-100" : "opacity-0"} overflow-auto bg-black text-gray-100`}>
         <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} className="w-full" />
         <MobileMenu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-        <Home/>
+        <Home/>    
+        <About/>
+    
       </div>
     </>
   )
