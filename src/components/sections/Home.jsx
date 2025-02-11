@@ -1,7 +1,12 @@
 import { RevealOnScroll } from "../RevealOnScroll"
+import DesignerImage from "../../assets/Designer.jpeg";
+
 export const Home = () => {
     return <section id="home" className="min-h-screen flex items-center justify-center relative">
         <RevealOnScroll>
+            <div className="text-center py-4">
+                <img  src={DesignerImage} alt="Logo" className="rounded-full w-32 h-32 md:w-48 md:h-48 mx-auto" />
+            </div>
             <div className="text-center z-10 px-4">
                 <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r 
             from-blue-300 to-green-600 bg-clip-text leading-right 
