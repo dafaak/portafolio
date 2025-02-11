@@ -11,7 +11,7 @@ export const About = () => {
             bg-clip-text text-transparent text-center">
                     Sobre mi
                 </h2>
-                <div class="rounded-xl p-2 border-white/10 border hover:-translate-y-1 transition-all">
+                <div className="rounded-xl p-2 border-white/10 border hover:-translate-y-1 transition-all">
                     <p className="text-gray-400/ text-lg mb-8 max-w-2xl mx-auto text-center">
                         Soy un Full Stack Developer con experiencia en el diseño, desarrollo e implementación de aplicaciones web y móviles. Mi expertise abarca tanto el frontend como el backend, con un enfoque en crear soluciones escalables, eficientes y centradas en el usuario.
 
