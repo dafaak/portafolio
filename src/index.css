@@ -1,9 +1,5 @@
 @import "tailwindcss";
-#root {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
+
 html,
 body {
   height: 100%;
@@ -46,13 +42,13 @@ body {
   }
 }
 
-.reveal{
-  opacity:0;
+.reveal {
+  opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
-.reveal.revealed{
-  opacity:1;
+.reveal.revealed {
+  opacity: 1;
   transform: translateY(0);
 }
