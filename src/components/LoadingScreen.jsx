@@ -3,7 +3,7 @@ import { useState } from "react"
 
 export const LoadingScreen = ({ onComplete }) => {
     const [text, setText] = useState("");
-    const fullText = "<DafaakDev/> ";
+    const fullText = "<IsraDev/> ";
 
     useEffect(() => {
         let index = 0;
