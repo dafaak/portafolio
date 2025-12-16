@@ -1,14 +1,14 @@
 import { RevealOnScroll } from "../RevealOnScroll"
 export const Projects = () => {
     return (
-        <section id="projects" className="min-h-screen flex items-center justify-center py-20 ">
+        <section id="projects" className=" flex items-center justify-center py-20 ">
             <RevealOnScroll>
             <div className="max-w-5xl mx-auto px-4">
-                <h2 className="text-3xl font-bold mb-8 
-            bg-gradient-to-r from-cyan-300 to-purple-600 
-            bg-clip-text text-transparent text-center">Featured Projects</h2>
+                <h2 className="text-3xl font-bold mb-8
+            bg-gradient-to-r from-cyan-300 to-purple-600
+            bg-clip-text text-transparent text-center">Proyectos</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="p-6 rounded-xl border border-white/10 hover:-translate-y-1 hover:border-blue-500/30 
+                    <div className="p-6 rounded-xl border border-white/10 hover:-translate-y-1 hover:border-blue-500/30
                     hover:shadow-[0_2px_8px_rgba(59,130,246,0.2)] transition">
                         <h3 className="text-xl font-bold mb-2">Typing Wars</h3>
                         <p className="text-gray-400 mb-4">Multiplayer typing game</p>
@@ -23,8 +23,8 @@ export const Projects = () => {
                             <a href="#" className="text-blue-400 hover:text-blue-300 transition-colors">View Project ➡️</a>
                         </div>
                     </div>
-                   
-                    <div className="p-6 rounded-xl border border-white/10 hover:-translate-y-1 hover:border-blue-500/30 
+
+                    <div className="p-6 rounded-xl border border-white/10 hover:-translate-y-1 hover:border-blue-500/30
                     hover:shadow-[0_2px_8px_rgba(59,130,246,0.2)] transition">
                         <h3 className="text-xl font-bold mb-2">Typing Wars</h3>
                         <p className="text-gray-400 mb-4">Multiplayer typing game</p>
@@ -40,7 +40,7 @@ export const Projects = () => {
                         </div>
                     </div>
 
-                    <div className="p-6 rounded-xl border border-white/10 hover:-translate-y-1 hover:border-blue-500/30 
+                    <div className="p-6 rounded-xl border border-white/10 hover:-translate-y-1 hover:border-blue-500/30
                     hover:shadow-[0_2px_8px_rgba(59,130,246,0.2)] transition">
                         <h3 className="text-xl font-bold mb-2">Typing Wars</h3>
                         <p className="text-gray-400 mb-4">Multiplayer typing game</p>
@@ -56,7 +56,7 @@ export const Projects = () => {
                         </div>
                     </div>
 
-                    <div className="p-6 rounded-xl border border-white/10 hover:-translate-y-1 hover:border-blue-500/30 
+                    <div className="p-6 rounded-xl border border-white/10 hover:-translate-y-1 hover:border-blue-500/30
                     hover:shadow-[0_2px_8px_rgba(59,130,246,0.2)] transition">
                         <h3 className="text-xl font-bold mb-2">Typing Wars</h3>
                         <p className="text-gray-400 mb-4">Multiplayer typing game</p>
