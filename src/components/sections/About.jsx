@@ -1,8 +1,8 @@
 import { RevealOnScroll } from "../RevealOnScroll";
 export const About = () => {
 
-    const frontendSkills = ['React', 'Angular', 'Typescript', 'CSS', 'Tailwind CSS', 'Bootstrap', 'Jest', 'Cypress'];
-    const backendSkills = ['Node.js', 'Express', 'NestJS', 'MongoDB', 'PostgreSQL', 'GraphQL', 'REST APIs', 'Docker'];
+    const frontendSkills = ['React', 'Angular', 'Typescript', 'CSS', 'Tailwind CSS', 'React Native', 'Bootstrap', 'Jest', 'Cypress'];
+    const backendSkills = ['Node.js', 'Express', 'NestJS','Microservices', 'MongoDB', 'PostgreSQL', 'GraphQL', 'REST APIs', 'Docker'];
     return <section id="about" className=" flex items-center justify-center py-20">
         <RevealOnScroll>
             <div className="max-w-3xl mx-auto px-4">
