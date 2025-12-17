@@ -11,7 +11,7 @@ export const About = () => {
             bg-clip-text text-transparent text-center">
                     Sobre mi
                 </h2>
-                <div className="rounded-xl p-2 border-white/10 border hover:-translate-y-2 transition-all hover:border-purple-600/30
+                <div className="rounded-xl p-2 border-white/10 border hover:-translate-y-1 transition-all hover:border-purple-600/30
                     hover:shadow-[0_2px_8px_rgba(59,130,246,0.2)] transition">
                     <p className="text-gray-400/ text-lg mb-8 max-w-2xl mx-auto text-center">
                         Soy un Full Stack Developer con experiencia en el diseño, desarrollo e implementación de aplicaciones web y móviles. Mi expertise abarca tanto el frontend como el backend, con un enfoque en crear soluciones escalables, eficientes y centradas en el usuario.
@@ -48,7 +48,7 @@ export const About = () => {
                     </div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-                    <div className="rounded-xl p-6 border-white/10 border hover:-translate-y-2 transition-all hover:border-purple-600/30
+                    <div className="rounded-xl p-6 border-white/10 border hover:-translate-y-1 transition-all hover:border-purple-600/30
                     hover:shadow-[0_2px_8px_rgba(59,130,246,0.2)] transition">
                         <h3 className="text-xl font-bold mb-4">🏫 Educación</h3>
                         <ul >
@@ -57,7 +57,7 @@ export const About = () => {
                             </li>
                         </ul>
                     </div>
-                    <div className="rounded-xl p-6 border-white/10 border hover:-translate-y-2 transition-all hover:border-purple-600/30
+                    <div className="rounded-xl p-6 border-white/10 border hover:-translate-y-1 transition-all hover:border-purple-600/30
                     hover:shadow-[0_2px_8px_rgba(59,130,246,0.2)] transition" >
                         <h3 className="text-xl font-bold mb-4">💼 Experiencia</h3>
                         <div className="space-y-4 text-gray-300">

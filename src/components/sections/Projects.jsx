@@ -45,7 +45,7 @@ export const Projects = () => {
                         {data.viewer.pinnedItems.nodes.map((repo, index) => (
 
 
-                            <div key={repo.name} className="p-6 rounded-xl border border-white/10 hover:-translate-y-2 hover:border-purple-600/30
+                            <div key={repo.name} className="p-6 rounded-xl border border-white/10 hover:-translate-y-1 hover:border-purple-600/30
                     hover:shadow-[0_2px_8px_rgba(59,130,246,0.2)] transition">
                                 <h3 className="text-xl font-bold mb-2">{repo.name}</h3>
                                 <p className="text-gray-400 mb-4">{repo.description}</p>
@@ -57,11 +57,15 @@ export const Projects = () => {
                                 {topic.topic.name}
                             </span>))}
                                 </div>
-                                <div className="flex justify-between mt-4 items-center">
+                                <div className=" flex justify-end mt-6 ">
+
                                     <a href={repo.url} target='_blank'
-                                       className="text-blue-400 hover:text-blue-300 transition-colors">Ver
-                                        Proyecto
-                                        ➡️</a>
+                                       className=" bg-purple-600 text-white py-3 px-6 rounded-lg font-medium transition
+                 relative overflow-hidden
+                 hover:shadow-[0_0_15px_rgba(190,130,246,0.4)]">Ver
+                                        Código
+                                    </a>
+
                                 </div>
                             </div>
 
