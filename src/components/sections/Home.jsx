@@ -36,7 +36,7 @@ export const Home = () => {
                         Contáctame
                     </a>
                 </div>
-                <div className="flex justify-center mt-6 text-gray-400 text-3xl">
+                <div className="flex justify-center mt-6 text-gray-400 text-3xl ">
                     <a href="https://www.linkedin.com/in/israel-p%C3%A9rez-8a21111b0/" target="_blank">
                         <FontAwesomeIcon icon={faLinkedin}/>
                     </a>
