@@ -23,7 +23,7 @@ const ProjectCardSkeleton = () => {
 
 const ProjectsSectionSkeleton = () => {
     return (
-        <section id="projects" className=" flex items-center justify-center py-20 ">
+        <section id="projects" className="min-h-screen flex items-center justify-center py-20 ">
             <div className="max-w-5xl mx-auto px-4 w-full">
                 <div className="flex justify-center mb-8">
                     <div className="h-8 w-48 bg-gray-700 rounded-md animate-pulse"></div>

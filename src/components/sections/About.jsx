@@ -3,7 +3,7 @@ export const About = () => {
 
     const frontendSkills = ['React', 'Angular', 'Typescript', 'CSS', 'Tailwind CSS', 'React Native', 'Bootstrap', 'Jest', 'Cypress'];
     const backendSkills = ['Node.js', 'Express', 'NestJS','Microservices', 'MongoDB', 'PostgreSQL', 'GraphQL', 'REST APIs', 'Docker'];
-    return <section id="about" className=" flex items-center justify-center py-20">
+    return <section id="about" className=" min-h-screen flex items-center justify-center py-20">
         <RevealOnScroll>
             <div className="max-w-3xl mx-auto px-4">
                 <h2 className="text-3xl font-bold mb-8
