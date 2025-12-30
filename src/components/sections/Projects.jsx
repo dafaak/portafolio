@@ -6,6 +6,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import * as byPrefixAndName from "@fortawesome/free-solid-svg-icons";
 import {faGithub, faLinkedin} from "@fortawesome/free-brands-svg-icons";
 import {faArrowRight} from "@fortawesome/free-solid-svg-icons/faArrowRight";
+import {faGamepad} from "@fortawesome/free-solid-svg-icons";
 
 const GET_PINNED_ITEMS = gql`query {
   viewer {
@@ -15,6 +16,7 @@ const GET_PINNED_ITEMS = gql`query {
           name
           description
           url
+          homepageUrl
                   
           repositoryTopics(first: 10) { 
             nodes {
@@ -77,6 +79,17 @@ export const Projects = () => {
                                 {topic.topic.name}
                             </span>))}
                                 </div>
+                                {repo.homepageUrl && <div className='flex justify-end'>
+                                    <a href={repo.homepageUrl} target='_blank'
+                                       className=" bg-purple-600 min-w-full text-white py-1 px-4 rounded-lg text-4xl transition
+                 relative overflow-hidden
+                 hover:shadow-[0_0_15px_rgba(190,130,246,0.4)]
+                 text-center
+                 "
+                                    >
+                                        <FontAwesomeIcon icon={faGamepad} />
+                                    </a>
+                                </div>}
 
                             </div>
 
