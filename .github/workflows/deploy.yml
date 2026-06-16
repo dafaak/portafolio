@@ -4,6 +4,12 @@ on:
   push:
     branches:
       - main # Asegúrate de que este sea el nombre de tu rama principal
+  workflow_dispatch:  # Permite ejecución manual
+    inputs:
+      environment:
+        description: 'Environment to deploy'
+        required: false
+        default: 'production'
 
 permissions:
   contents: read
