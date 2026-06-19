@@ -90,7 +90,7 @@ const devopsAndCloud = [
 
                              {/* Devops skills */}
                             <div>
-                                <h3 className="text-lg font-bold uppercase tracking-wide mb-4 text-white">{"> Devops"}</h3>
+                                <h3 className="text-lg font-bold uppercase tracking-wide mb-4 text-white">{"> Cloud & Devops"}</h3>
                                 <div className="flex flex-wrap gap-2">
                                     {devopsAndCloud.map((skill, index) => (
                                         <span key={index}
@@ -128,9 +128,9 @@ const devopsAndCloud = [
                             </h3>
                             <div className="space-y-6 text-sm">
                                 <div>
-                                    <span className="block font-bold text-white text-base">Full Stack Developer</span>
+                                    <span className="block font-bold text-white text-base">Software Engineer</span>
                                     <span className="text-gray-400 block mb-2">ManticoreLabs (2020 - 2024)</span>
-                                    <p className="leading-relaxed">Diseñé y desarrollé APIs, aplicaciones empresariales e integraciones entre sistemas utilizando Node.js, NestJS, PostgreSQL y Oracle. Participé en decisiones de arquitectura, optimización de rendimiento e implementación de soluciones cloud con AWS Lambda. Trabajé en la integración de servicios externos, automatización de procesos y desarrollo de funcionalidades escalables para entornos de producción.</p>
+                                    <p className="leading-relaxed">Diseñé y desarrollé APIs, aplicaciones empresariales e integraciones entre sistemas utilizando Node.js, NestJS, PostgreSQL y Oracle. Participé en decisiones de arquitectura, optimización de rendimiento e implementación de soluciones cloud con AWS Lambda. Trabajé en la integración de servicios externos, automatización de procesos y desarrollo de funcionalidades escalables para entornos de producción. Optimicé servicios backend y consultas SQL, reduciendo tiempos de respuesta de APIs de 30 segundos a 1 segundo.</p>
                                 </div>
                                 <div className="border-t border-dashed border-white/50 pt-4">
                                     <span className="block font-bold text-white text-base">Intern</span>
