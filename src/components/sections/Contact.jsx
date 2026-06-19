@@ -1,17 +1,16 @@
-import {useState} from "react";
-import {RevealOnScroll} from "../RevealOnScroll";
+import { useState } from "react";
+import { RevealOnScroll } from "../RevealOnScroll";
 import emailjs from 'emailjs-com';
 
 export const Contact = () => {
-    const [formData, setFormData] = useState({name: "", email: "", message: ""});
+    const [formData, setFormData] = useState({ name: "", email: "", message: "" });
 
     const [formStatus, setFormStatus] = useState({
         submitting: false,
         success: false,
         error: false,
         message: '',
-    })
-
+    });
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -20,7 +19,7 @@ export const Contact = () => {
             success: false,
             error: false,
             message: '',
-        })
+        });
         emailjs.sendForm(
             import.meta.env.VITE_SERVICE_ID,
             import.meta.env.VITE_TEMPLATE_ID,
@@ -28,74 +27,116 @@ export const Contact = () => {
             import.meta.env.VITE_PUBLIC_KEY
         )
             .then(() => {
-                setFormData({name: "", email: "", message: ""});
+                setFormData({ name: "", email: "", message: "" });
                 setFormStatus({
                     submitting: false,
                     success: true,
                     error: false,
-                    message: 'Mensaje enviado!',
-                })
+                    message: '¡MENSAJE ENVIADO CON ÉXITO!',
+                });
 
-                setTimeout(() => setFormStatus({...formStatus, success: false}), 2000)
+                setTimeout(() => setFormStatus(prev => ({ ...prev, success: false, message: '' })), 3000);
             })
             .catch((err) => {
                 setFormStatus({
                     submitting: false,
                     success: false,
                     error: true,
-                    message: 'Ups, algo salió mal!',
-                })
-                console.error('Paso algo: ', err)
-            })
-    }
+                    message: '¡UPS, ALGO SALIÓ MAL!',
+                });
+                console.error('Pasó algo: ', err);
+            });
+    };
 
-    return <section id="contact" className="min-h-screen flex justify-center items-center py-20">
-        <RevealOnScroll>
-            <div className="px-4 w-100">
-                <h2 className="text-3xl font-bold mb-8
-            bg-gradient-to-r from-cyan-300 to-purple-600
-            bg-clip-text text-transparent text-center">Contáctame</h2>
-                <form action="" className="space-y-6" onSubmit={handleSubmit}>
-                    <div className="relative">
-                        <input type="text" id="name" name="name" required
-                               className="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white transition focus:outline-none focus:border-blue-500 focus:bg-blue-500/5"
-                               placeholder="Nombre..."
-                               value={formData.name}
-                               onChange={(e) => setFormData({...formData, name: e.target.value})}
-                        />
-                    </div>
+    return (
+        <section id="contact" className="min-h-screen flex justify-center items-center bg-black text-white font-mono py-20">
+            <RevealOnScroll>
+                <div className="px-4 w-full max-w-md mx-auto">
+                    
+                    {/* Título estilo menú de guardado */}
+                    <h2 className="text-3xl md:text-5xl font-bold uppercase tracking-wider text-center mb-12 text-white">
+                        {"// CONTACTO"}
+                    </h2>
 
-                    <div className="relative">
-                        <input type="email" id="email" name="email" required
-                               className="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white transition focus:outline-none focus:border-blue-500 focus:bg-blue-500/5"
-                               placeholder="ejemplo@gmail.com..."
-                               value={formData.email}
-                               onChange={(e) => setFormData({...formData, email: e.target.value})}
-                        />
-                    </div>
+                    {/* Formulario envuelto en un contenedor rígido */}
+                    <form className="space-y-6 border-4 border-white p-6 bg-black shadow-[6px_6px_0px_0px_rgba(255,255,255,0.15)]" onSubmit={handleSubmit}>
+                        
+                        {/* Campo: Nombre */}
+                        <div className="relative">
+                            <label htmlFor="name" className="block text-xs uppercase font-bold tracking-wider mb-2 text-white">
+                                [ INPUT NAME ]
+                            </label>
+                            <input 
+                                type="text" 
+                                id="name" 
+                                name="name" 
+                                required
+                                className="w-full bg-black border-2 border-white px-4 py-3 text-white placeholder-white/30 uppercase text-sm
+                                           focus:outline-none focus:bg-white focus:text-black transition-colors duration-100"
+                                placeholder="Tu nombre..."
+                                value={formData.name}
+                                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                            />
+                        </div>
 
-                    <div className="relative">
-                        <textarea id="message" name="message" required
-                                  rows={5}
-                                  className="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white transition focus:outline-none focus:border-blue-500 focus:bg-blue-500/5"
-                                  placeholder="Tu mensaje..."
-                                  value={formData.message}
-                                  onChange={(e) => setFormData({...formData, message: e.target.value})}
-                        />
-                    </div>
+                        {/* Campo: Email */}
+                        <div className="relative">
+                            <label htmlFor="email" className="block text-xs uppercase font-bold tracking-wider mb-2 text-white">
+                                [ INPUT EMAIL ]
+                            </label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                required
+                                className="w-full bg-black border-2 border-white px-4 py-3 text-white placeholder-white/30 text-sm
+                                           focus:outline-none focus:bg-white focus:text-black transition-colors duration-100"
+                                placeholder="ejemplo@correo.com..."
+                                value={formData.email}
+                                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                            />
+                        </div>
 
-                    <button type="submit"
-                            className="w-full bg-blue-500 text-white py-3 px-6 rounded font-medium transition relative overflow-hidden hover:-translate-y-0.5 hover:shadow-[0_0_15px_rgba(59,130,246,0.4)] disabled:opacity-50"
+                        {/* Campo: Mensaje */}
+                        <div className="relative">
+                            <label htmlFor="message" className="block text-xs uppercase font-bold tracking-wider mb-2 text-white">
+                                [ INPUT MESSAGE ]
+                            </label>
+                            <textarea 
+                                id="message" 
+                                name="message" 
+                                required
+                                rows={4}
+                                className="w-full bg-black border-2 border-white px-4 py-3 text-white placeholder-white/30 text-sm resize-none
+                                           focus:outline-none focus:bg-white focus:text-black transition-colors duration-100"
+                                placeholder="Escribe tu mensaje aquí..."
+                                value={formData.message}
+                                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                            />
+                        </div>
+
+                        {/* Botón de envío estilo comando de batalla */}
+                        <button 
+                            type="submit"
+                            className="w-full bg-white text-black py-3 px-6 border-2 border-white font-bold uppercase tracking-widest text-sm
+                                       shadow-[4px_4px_0px_0px_rgba(255,255,255,0.3)]
+                                       hover:bg-black hover:text-white hover:shadow-none hover:translate-x-1 hover:translate-y-1
+                                       disabled:opacity-40 disabled:pointer-events-none transition-all duration-100"
                             disabled={formStatus.submitting}
-                    >
-                        {formStatus.submitting ? 'Enviando...' : 'Enviar'}
-                    </button>
-                    {formStatus.message && (<div
-                        className={formStatus.success ? 'bg-green-300/10 text-green-300 px-3 py-3 rounded-md text-xl' : 'bg-red-300/10 text-red-300 px-3 py-1 rounded-full text-sm'}>{formStatus.message}</div>)}
-                </form>
-            </div>
+                        >
+                            {formStatus.submitting ? 'ENVIANDO...' : '> SEND MESSAGE'}
+                        </button>
 
-        </RevealOnScroll>
-
-    </section>
-}
+                        {/* Caja de alertas retro */}
+                        {formStatus.message && (
+                            <div className={`border-2 p-3 text-xs font-bold uppercase text-center animate-[pulse_1s_steps(2)_infinite]
+                                            ${formStatus.success ? 'border-white bg-white text-black' : 'border-white bg-black text-white'}`}>
+                                {formStatus.message}
+                            </div>
+                        )}
+                    </form>
+                </div>
+            </RevealOnScroll>
+        </section>
+    );
+};

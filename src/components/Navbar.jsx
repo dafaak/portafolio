@@ -1,28 +1,48 @@
-import { useEffect } from "react"
+import { useEffect } from "react";
 
 export const Navbar = ({ menuOpen, setMenuOpen }) => {
     useEffect(() => {
         document.body.style.overflow = menuOpen ? "hidden" : "auto";
-    }, [menuOpen])
+    }, [menuOpen]);
 
+    return (
+        <nav className="fixed top-0 left-0 w-full z-40 bg-black border-b-1 border-white font-mono">
+            <div className="max-w-5xl mx-auto px-4">
+                <div className="flex items-center justify-between h-16">
+                    {/* Logo estilo nombre de partida/jugador */}
+                    <a href="#home" className="text-white text-lg font-bold uppercase tracking-widest hover:bg-white hover:text-black px-2 py-1 transition-colors duration-100">
+                        [ISRA.DEV]
+                    </a>
 
-    return <nav className="fixed top-0 left-0  w-full z-40 bg-[rgba(10,10,10,0.8)]
-     backdrop-blur-lg border-b border-white/10 shadow-lg">
-        <div className="max-w-5xl mx-auto px-4">
-            <div className="flex items-center justify-between h-16 ">
-                <a href="#home" className="text-white-500 font-mono text-xl font-bold" >@IsraDev</a>
+                    {/* Botón menú móvil rígido */}
+                    <button 
+                        className="text-white font-bold uppercase tracking-wider text-sm border-2 border-white px-2 py-1 md:hidden z-50 cursor-pointer active:translate-y-0.5" 
+                        onClick={() => setMenuOpen((prev) => !prev)}
+                    >
+                        {menuOpen ? "CLOSE" : "MENU"}
+                    </button>
 
-                <div className="w-5  h-5 relative cursor-pointer z-40 md:hidden" onClick={() => setMenuOpen((prev) => !prev)}>
-                    &#9776;
-                </div>
-                <div className="hidden md:flex items-center space-x-8 ml-4">
-                    <a href="#home" className="text-gray-300 hover:text-white-700 transition-colors">Home</a>
-                    <a href="#about" className="text-gray-300 hover:text-white-700 transition-colors">About</a>
-                    <a href="#projects" className="text-gray-300 hover:text-white-700 transition-colors">Proyectos</a>
-                    <a href="#contact" className="text-gray-300 hover:text-white-700 transition-colors">Contacto</a>
+                    {/* Enlaces de escritorio corregidos */}
+                    <div className="hidden md:flex items-center space-x-8">
+                        <a href="#home" className="relative text-white uppercase text-sm font-bold tracking-wider py-1 pl-4 pr-2 group transition-colors">
+                            <span className="absolute left-0 opacity-0 group-hover:opacity-100 transition-opacity duration-75 text-white">&gt;</span>
+                            Home
+                        </a>
+                        <a href="#about" className="relative text-white uppercase text-sm font-bold tracking-wider py-1 pl-4 pr-2 group transition-colors">
+                            <span className="absolute left-0 opacity-0 group-hover:opacity-100 transition-opacity duration-75 text-white">&gt;</span>
+                            About
+                        </a>
+                        <a href="#projects" className="relative text-white uppercase text-sm font-bold tracking-wider py-1 pl-4 pr-2 group transition-colors">
+                            <span className="absolute left-0 opacity-0 group-hover:opacity-100 transition-opacity duration-75 text-white">&gt;</span>
+                            Proyectos
+                        </a>
+                        <a href="#contact" className="relative text-white uppercase text-sm font-bold tracking-wider py-1 pl-4 pr-2 group transition-colors">
+                            <span className="absolute left-0 opacity-0 group-hover:opacity-100 transition-opacity duration-75 text-white">&gt;</span>
+                            Contacto
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-
-    </nav>
-}
+        </nav>
+    );
+};

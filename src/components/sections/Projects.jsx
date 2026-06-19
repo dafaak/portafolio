@@ -1,12 +1,9 @@
 import ProjectsSectionSkeleton from './ProjectSectionSkeleton.jsx';
-import {RevealOnScroll} from "../RevealOnScroll"
-import {gql} from '@apollo/client';
-import {useQuery} from "@apollo/client/react";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import * as byPrefixAndName from "@fortawesome/free-solid-svg-icons";
-import {faGithub, faLinkedin} from "@fortawesome/free-brands-svg-icons";
-import {faArrowRight} from "@fortawesome/free-solid-svg-icons/faArrowRight";
-import {faGamepad} from "@fortawesome/free-solid-svg-icons";
+import { RevealOnScroll } from "../RevealOnScroll";
+import { gql } from '@apollo/client';
+import { useQuery } from "@apollo/client/react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight, faGamepad } from "@fortawesome/free-solid-svg-icons";
 
 const GET_PINNED_ITEMS = gql`query {
   viewer {
@@ -33,71 +30,92 @@ const GET_PINNED_ITEMS = gql`query {
 }`;
 
 export const Projects = () => {
+    const { data, error, loading } = useQuery(GET_PINNED_ITEMS);
 
-    const {data, error, loading} = useQuery(GET_PINNED_ITEMS);
-
-    if (loading) return <ProjectsSectionSkeleton/>;
-    if (error) return <div>Error: {error.message}</div>;
+    if (loading) return <ProjectsSectionSkeleton />;
+    if (error) return <div className="bg-black text-white p-4 border-2 border-white font-mono text-center">Error: {error.message}</div>;
 
     return (
-        <section id="projects" className="min-h-screen flex items-center justify-center py-20 ">
+        <section id="projects" className="min-h-screen flex items-center justify-center bg-black text-white font-mono py-20">
             <RevealOnScroll>
                 <div className="max-w-5xl mx-auto px-4">
-                    <h2 className="text-3xl font-bold mb-8
-            bg-gradient-to-r from-cyan-300 to-purple-600
-            bg-clip-text text-transparent text-center">Proyectos</h2>
+                    
+                    {/* Título estilo menú principal */}
+                    <h2 className="text-3xl md:text-5xl font-bold uppercase tracking-wider text-center mb-12 text-white">
+                        {"// PROYECTOS"}
+                    </h2>
+
+                    {/* Grid de tarjetas */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-                        {data.viewer.pinnedItems.nodes.map((repo, index) => (
-
-
-                            <div key={repo.name} className="p-6 rounded-xl border border-white/10 hover:-translate-y-1 hover:border-purple-600/30
-                    hover:shadow-[0_2px_8px_rgba(59,130,246,0.2)] transition">
-
-                                <div className=" flex  justify-between align-items-baseline mt-6 ">
-                                    <div>
-                                        <h3 className="text-xl font-bold mb-2">{repo.name}</h3>
-                                    </div>
-
-                                    <div>
-                                        <a href={repo.url} target='_blank'
-                                           className=" bg-purple-600 text-white py-2 px-4 rounded-lg font-medium transition
-                 relative overflow-hidden
-                 hover:shadow-[0_0_15px_rgba(190,130,246,0.4)]">
-                                            <FontAwesomeIcon icon={faArrowRight}/>
+                        {data.viewer.pinnedItems.nodes.map((repo) => (
+                            
+                            /* Tarjeta estilo ranura de guardado RPG (Borde blanco rígido, sombra sólida) */
+                            <div key={repo.name} 
+                                 className="p-6 bg-black border-4 border-white flex flex-col justify-between
+                                            shadow-[4px_4px_0px_0px_rgba(255,255,255,0.15)] 
+                                            hover:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] 
+                                            hover:-translate-x-1 hover:-translate-y-1 
+                                            transition-all duration-100">
+                                
+                                <div>
+                                    {/* Cabecera del Proyecto */}
+                                    <div className="flex justify-between items-start mb-4">
+                                        <h3 className="text-xl font-bold uppercase tracking-wide text-white">
+                                            {repo.name}
+                                        </h3>
+                                        
+                                        {/* Botón enlace a GitHub (Flecha) */}
+                                        <a href={repo.url} 
+                                           target='_blank' 
+                                           rel="noreferrer"
+                                           className="bg-white text-black p-2 border-2 border-white font-bold
+                                                      hover:bg-black hover:text-white transition-colors duration-100"
+                                           title="Ver repositorio">
+                                            <FontAwesomeIcon icon={faArrowRight} className="w-4 h-4"/>
                                         </a>
                                     </div>
 
+                                    {/* Descripción */}
+                                    <p className="text-sm leading-relaxed mb-6 border-t border-dashed border-white/50 pt-3">
+                                        {repo.description || "Sin descripción disponible en el repositorio."}
+                                    </p>
+                                </div>
 
+                                <div>
+                                    {/* Tags del repositorio */}
+                                    <div className="flex flex-wrap gap-2 mb-6">
+                                        {repo.repositoryTopics.nodes.map((topic, idx) => (
+                                            <span key={idx}
+                                                  className="border border-white bg-black text-white px-2 py-0.5 text-xs uppercase font-bold">
+                                                {topic.topic.name}
+                                            </span>
+                                        ))}
+                                    </div>
+
+                                    {/* Botón para Demo / Jugar (Si existe homepageUrl) */}
+                                    {repo.homepageUrl && (
+                                        <div className='w-full'>
+                                            <a href={repo.homepageUrl} 
+                                               target='_blank' 
+                                               rel="noreferrer"
+                                               className="block bg-black text-white py-3 px-4 border-2 border-white text-2xl text-center font-bold uppercase
+                                                          shadow-[4px_4px_0px_0px_rgba(255,255,255,0.3)]
+                                                          hover:bg-white hover:text-black hover:shadow-none hover:translate-x-1 hover:translate-y-1
+                                                          transition-all duration-100"
+                                            >
+                                                <FontAwesomeIcon icon={faGamepad} className="mr-3 inline-block align-middle" />
+                                                <span className="text-sm tracking-widest inline-block align-middle font-bold">Try it</span>
+                                            </a>
+                                        </div>
+                                    )}
                                 </div>
-                                <p className="text-gray-400 mb-4">{repo.description}</p>
-                                <div className="flex flex-wrap gap-2 mb-4">
-                                    {repo.repositoryTopics.nodes.map((topic, index) => (
-                                        <span key={index}
-                                              className="bg-blue-500/10 text-blue-500 px-3 py-1 rounded-full text-sm hover:bg-blue-500/20
-                            hover:shadow-[0_2px_8px_rgba(59,130,2246,0.1)] transition-all">
-                                {topic.topic.name}
-                            </span>))}
-                                </div>
-                                {repo.homepageUrl && <div className='flex justify-end'>
-                                    <a href={repo.homepageUrl} target='_blank'
-                                       className=" bg-purple-600 min-w-full text-white py-1 px-4 rounded-lg text-4xl transition
-                 relative overflow-hidden
-                 hover:shadow-[0_0_15px_rgba(190,130,246,0.4)]
-                 text-center
-                 "
-                                    >
-                                        <FontAwesomeIcon icon={faGamepad} />
-                                    </a>
-                                </div>}
 
                             </div>
-
                         ))}
-
                     </div>
+
                 </div>
             </RevealOnScroll>
         </section>
-    )
-}
+    );
+};
