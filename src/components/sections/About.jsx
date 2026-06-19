@@ -9,6 +9,7 @@ export const About = () => {
   'Express',
   'REST APIs',
   'Microservices',
+  'Redis'
 ];
 
 const databaseSkills = [
@@ -20,7 +21,7 @@ const databaseSkills = [
 ];
 const devopsAndCloud = [
   'Docker',
-  'AWS',
+  'AWS Lambda',
   'Git'
 ];
 
@@ -37,7 +38,7 @@ const devopsAndCloud = [
                     {/* Contenedor Principal: Gran cuadro de texto RPG */}
                     <div className="border-4 border-white bg-black p-6 mb-8 shadow-[6px_6px_0px_0px_rgba(255,255,255,0.15)]">
                         <p className="text-white text-sm md:text-base leading-relaxed text-justify mb-8">
-                            Soy Ingeniero de Software y me apasiona construir productos que resuelvan problemas reales. Tengo más de 4 años de experiencia desarrollando aplicaciones web, APIs y plataformas SaaS utilizando tecnologías como Go, Node.js, NestJS, Angular y PostgreSQL.
+                            Soy Ingeniero de Software y me apasiona construir productos que resuelvan problemas reales.Tengo más de 4 años de experiencia desarrollando aplicaciones web, APIs y plataformas SaaS utilizando tecnologías como Node.js, NestJS, Go, PostgreSQL y Angular.
                             <br /><br />
                             He trabajado tanto en proyectos empresariales como en productos propios, participando en todo el proceso: desde el diseño de la arquitectura hasta el despliegue en producción. Disfruto especialmente resolver problemas complejos, optimizar sistemas y aprender nuevas tecnologías que me permitan crear software más eficiente y mantenible.
                         </p>
