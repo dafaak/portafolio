@@ -23,6 +23,8 @@ export const About = () => {
   const databaseSkills = ["PostgreSQL", "Redis", "MongoDB", "Oracle", "MySQL"];
   const devopsAndCloud = ["Docker", "AWS Lambda", "Git"];
 
+ 
+
   return (
     <section
       id="about"
@@ -51,6 +53,9 @@ export const About = () => {
               aprender nuevas tecnologías que me permitan crear software más
               eficiente y mantenible.
             </p>
+
+
+ 
 
             {/* Sección de Skills dividida como sub-menús */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 border-t-2 border-dashed border-white pt-6">
